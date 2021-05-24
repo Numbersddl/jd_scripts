@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_moneyTree
+name: jd_jump-jump
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '3 0-23/2 * * *' #此处为UTC-0时间
+    - cron: '5 0,6,12 22-27 2 *' #此处为UTC-0时间
   watch:
     types: started
   repository_dispatch:
-    types: moneyTree
+    types: jump-jump
 jobs:
   build:
 
@@ -35,9 +35,9 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【京东摇钱树 】'
+      - name: '运行 【母婴-跳一跳】'
         run: |
-          node jd_moneyTree.js
+          node jd_jump-jump.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
